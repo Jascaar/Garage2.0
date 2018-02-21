@@ -1,105 +1,189 @@
-﻿@model IEnumerable<Garage2._0.Models.Member>
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@*@model IPagedList<IEnumerable<Garage2._0.Models.ParkedVehicle>>*@
+
+<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+
+
+@model IEnumerable<Garage2._0.Models.Member>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Member list";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
+
+<form method="get">
+
+    <div class="table-bordered">
+
+        <b>@Html.RadioButton("searchBy", "SSN", true) <text>SSN</text></b>
+        <b>@Html.RadioButton("searchBy", "LastName") <text>First Name</text></b>
+        <b>@Html.RadioButton("searchBy", "City") <text>City</text></b>
+        <br />
+    </div>
+
+    <div class=table-responsive>
+        @Html.TextBox("search")<input type="submit" value="Search" />
+    </div>
+
+    @*@Html.EnumDropDownListFor(model => model., htmlAttributes: new { @class = "form-control" })*@
+</form>
+
+@*@Ajax.ActionLink("All", "All", new AjaxOptions()
+    {
+
+        HttpMethod = "GET",
+        UpdateTargetId = "divAllMembers",
+        InsertionMode = InsertionMode.Replace
+
+    })
+
+    <div id="divAllMembers">
+    </div>*@
+
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Sign up", "SignUp")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.SSN)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.SSNSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.FirstNameSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LastName)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.LastNameSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SignUpTime)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.SignUpTimeSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Cellular)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.Cellular })
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.EmailSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Street)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.StreetSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StreetNumber)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.StreetNumberSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetNumberAppendix)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.StreetNumberAppendixSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OfficialApartmentNumber)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.OfficialApartmentNumberSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PostCode)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.PostCodeSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.City)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.CitySortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Country)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.CountrySortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Gender)
+            @Html.ActionLink(HttpUtility.HtmlDecode("&#x2195;"), "Index", new { sortOrder = ViewBag.GenderSortParm })
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SSN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SignUpTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cellular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OfficialApartmentNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Country)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="8"> No rows match search criteria! Try to make a new search.</td>
+        </tr>
+    }
+
+
+    else
+
+
+    {
+
+
+
+        foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignUpTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cellular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StreetNumberAppendix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficialApartmentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Unregister", "Unregister", new { id = item.Id })
+            </td>
+        </tr>
+        }}
+
+    </table>

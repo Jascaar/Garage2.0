@@ -51,8 +51,8 @@ namespace Garage2._0.Models
         }
 
 
-        [Required(ErrorMessage = "Required field")]
         protected string firstName;
+        [Required(ErrorMessage = "Required field")]
         [DisplayName("First Name")]
         public string FirstName
         {
@@ -70,7 +70,7 @@ namespace Garage2._0.Models
         }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DisplayName("Sign-up time")]
+        [DisplayName("Sign up time")]
         public DateTime SignUpTime
         { get; set; } = DateTime.Now;
 
@@ -93,11 +93,19 @@ namespace Garage2._0.Models
 
 
         [Range(1, int.MaxValue, ErrorMessage = "Only positive integers >0 are valid")]
+        [Required(ErrorMessage = "Required field")]
         [DisplayName("Street number")]
         public int StreetNumber { get; set; }
 
+        protected string streetNumberAppendix;
         [DisplayName("Street number appendix")]
-        public char StreetNumberAppendix { get; set; }
+        public string StreetNumberAppendix 
+        {
+            get { return streetNumberAppendix; }
+    set { if (value is null || value.Length == 0) streetNumberAppendix = "";
+                else streetNumberAppendix = FirstUpperCase(value);
+}
+        }
 
 
         [RegularExpression("(^[0-9]{4}$)", ErrorMessage = "Official apparment numbers are always 4 digits")]
@@ -108,6 +116,7 @@ namespace Garage2._0.Models
         protected string postCode;
         //hantering så att all endast 5 siffror, visa dock med mellanslag mellan 3 och 2
         [RegularExpression("(^[0-9]{5}|([0-9]{3}[ X][0-9]{2}|)$)", ErrorMessage = "Post Code Should be 5 digits ([XXXXX] or [XXX XX]")]
+        [DisplayName("Post code")]
         public string PostCode
         {
             get { return postCode; }

@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ParkingSlot, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ParkingSlot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DisplayFor(model => model.ParkingSlot)
                 @Html.ValidationMessageFor(model => model.ParkingSlot, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -84,7 +84,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.StartParking, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartParking, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DisplayFor(model => model.StartParking)
                 @Html.ValidationMessageFor(model => model.StartParking, "", new { @class = "text-danger" })
             </div>
         </div>
