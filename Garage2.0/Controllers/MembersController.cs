@@ -246,7 +246,7 @@ namespace Garage2._0.Controllers
         }
 
         // POST: Members/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Unregister")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
