@@ -161,21 +161,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802201425078_init18.cs" />
-    <Compile Include="Migrations\201802201425078_init18.Designer.cs">
-      <DependentUpon>201802201425078_init18.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802201428461_init19.cs" />
-    <Compile Include="Migrations\201802201428461_init19.Designer.cs">
-      <DependentUpon>201802201428461_init19.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802201444229_init20.cs" />
-    <Compile Include="Migrations\201802201444229_init20.Designer.cs">
-      <DependentUpon>201802201444229_init20.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802201455335_init21.cs" />
-    <Compile Include="Migrations\201802201455335_init21.Designer.cs">
-      <DependentUpon>201802201455335_init21.cs</DependentUpon>
+    <Compile Include="Migrations\201802201829196_a.cs" />
+    <Compile Include="Migrations\201802201829196_a.Designer.cs">
+      <DependentUpon>201802201829196_a.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201802210407187_init22.cs" />
     <Compile Include="Migrations\201802210407187_init22.Designer.cs">
@@ -277,17 +265,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802201425078_init18.resx">
-      <DependentUpon>201802201425078_init18.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802201428461_init19.resx">
-      <DependentUpon>201802201428461_init19.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802201444229_init20.resx">
-      <DependentUpon>201802201444229_init20.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802201455335_init21.resx">
-      <DependentUpon>201802201455335_init21.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802201829196_a.resx">
+      <DependentUpon>201802201829196_a.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802210407187_init22.resx">
       <DependentUpon>201802210407187_init22.cs</DependentUpon>
