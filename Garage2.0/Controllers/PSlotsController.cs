@@ -36,7 +36,7 @@ namespace PSlots2._0.Controllers
 
 
             ViewBag.Total = "Total";
-            ViewBag.Count = db.PSlots.Where(g => (g.ParkingSlot > 0)).Count();
+            ViewBag.Count = db.PSlots.Where(g => (g.ParkingSlot >= 0)).Count();
 
             ViewBag.SumTires = 0;
             ViewBag.ParkingTime = 0;
