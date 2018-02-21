@@ -23,9 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.AccumulatedRevenue)
         </th>
-        <th>
-            <b>Total        </b>
-        </th>
         <th></th>
     </tr>
 
@@ -50,38 +47,38 @@
             </td>
         </tr>
     }
+
     <tr>
-        <td>
+        
+            <td>
 
-            @Html.DisplayFor(model => model.getSubTotal(Count))
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Count)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SumTires)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ParkingTime) Minutes
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AccumulatedRevenue) SEK
-        </td>
+                <b> @ViewBag.Total</b>
+</td>
+            <td>
+                <b>@ViewBag.Count</b>
+            </td>
+            <td>
+                <b>@ViewBag.SumTires</b>
+            </td>
+            <td>
+                <b>@ViewBag.ParkingTime Minutes</b>
+            </td>
+            <td>
+                <b>@ViewBag.AccumulatedRevenue SEK</b>
+            </td>
     </tr>
-
+    </b>
 </table>
 
-
-
-ADD A LIST HERE WHERE ONLY 
-Owner, VehicleType, RegistrationNumber and ParkingTime is visible
+    ADD A LIST HERE WHERE ONLY
+    Owner, VehicleType, RegistrationNumber and ParkingTime is visible
 
 
 
 
 
-<div class="form-actions no-color hidden-print">
+    <div class="form-actions no-color hidden-print">
 
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 

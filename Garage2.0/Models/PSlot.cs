@@ -27,9 +27,6 @@ namespace Garage2._0.Models
         [Required(ErrorMessage = "Required field")]
         public int VehicleTypeId { get; set; }
 
-
-        [Range(1, 100, ErrorMessage = "Not a valid parking slot. Please choose a free slot between 1 and 100")]
-        [Required(ErrorMessage = "Required field")]
         public int ParkingSlot { get; set; }
 
         string vehicleRegistrationNumber;
@@ -62,7 +59,6 @@ namespace Garage2._0.Models
 
         [DisplayName("Parking start time")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}")]
-        [Required(ErrorMessage = "Required field")]
         public DateTime StartParking
         { get; set; } = DateTime.Now;
 

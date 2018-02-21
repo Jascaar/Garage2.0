@@ -34,6 +34,21 @@ namespace PSlots2._0.Controllers
                                 AccumulatedRevenue = g.Sum(h => DbFunctions.DiffMinutes(h.StartParking, DateTime.Now) * MinutePrice)
                             }).ToList();
 
+
+            ViewBag.Total = "Total";
+            ViewBag.Count = db.PSlots.Where(g => (g.ParkingSlot > 0)).Count();
+
+            ViewBag.SumTires = 0;
+            ViewBag.ParkingTime = 0;
+            ViewBag.AccumulatedRevenue = 0;
+            foreach (var item in model)
+            {
+                ViewBag.SumTires += item.SumTires;
+                ViewBag.ParkingTime += item.ParkingTime;
+                ViewBag.AccumulatedRevenue += item.AccumulatedRevenue;
+            }
+
+
             return View(model);
 
         }
@@ -265,6 +280,7 @@ namespace PSlots2._0.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Id = id;
             ViewBag.MemberId = new SelectList(db.Members, "Id", "SSN", pSlot.MemberId);
             ViewBag.VehicleTypeId = new SelectList(db.VehicleTypes, "Id", "TypeOfVehicle", pSlot.VehicleTypeId);
             return View(pSlot);
@@ -275,7 +291,7 @@ namespace PSlots2._0.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,MemberId,VehicleTypeId,ParkingSlot,VehicleRegistrationNumber,VehicleBrand,VehicleModel,Color,TiresOnVehicle,StartParking")] PSlot pSlot)
+        public ActionResult Edit([Bind(Include = "Id,MemberId,VehicleTypeId,VehicleRegistrationNumber,VehicleBrand,VehicleModel,Color,TiresOnVehicle")] PSlot pSlot)
         {
             if (ModelState.IsValid)
             {

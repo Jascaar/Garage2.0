@@ -6,7 +6,12 @@
 
 <h2>@ViewBag.Title</h2>
 
-<h3>Are you sure you want to unpark this vehicle?</h3>
+<div class="visible-print">Receipt for parking in Garage 2.0.</div>
+<br />
+<div class="visible-print">Hope you enjoyed our services and soon will return again</div>
+
+
+<h3 class=" hidden-print">Are you sure you want to unpark this vehicle?</h3>
 <div>
     <h4></h4>
     <hr />
@@ -83,14 +88,50 @@
             @Html.DisplayFor(model => model.StartParking)
         </dd>
 
+        <dt>
+            Time in PSlots
+        </dt>
+
+        <dd>
+            @ViewBag.timeInPSlots hours
+        </dd>
+        <dt>
+            Current pricing model
+        </dt>
+
+        <dd>
+            @ViewBag.currentPricingModel
+        </dd>
+        <dt>
+            Current cost
+        </dt>
+
+        <dd>
+            @ViewBag.currentCost SEK
+        </dd>
+
+
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Unpark" class="btn btn-default"/> |
+        <div class="form-actions no-color hidden-print">
+            <input type="submit" value="Unpark" class="btn btn-primary" />
+            <input type="button" value="Print Form" onclick="window.print()" class="btn btn-danger" />
+
             @Html.ActionLink("Back to List", "Index")
         </div>
+
+        <div class="visible-print">
+            <br />
+            <br />
+            Your pre-registered credit card will be charged with @ViewBag.currentCost SEK when pressing UNPARK
+        </div>
+
+        <text>LÄGG TILL NAMNET PÅ PARKERAREN</text>
+
+
     }
 </div>

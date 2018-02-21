@@ -36,8 +36,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ParkingSlot, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DisplayFor(model => model.ParkingSlot)
-                @Html.ValidationMessageFor(model => model.ParkingSlot, "", new { @class = "text-danger" })
+            @ViewBag.Id
+
             </div>
         </div>
 
