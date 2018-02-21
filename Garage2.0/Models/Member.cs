@@ -70,7 +70,7 @@ namespace Garage2._0.Models
         }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DisplayName("Sign up time")]
+        [DisplayName("Sign up date")]
         public DateTime SignUpTime
         { get; set; } = DateTime.Now;
 

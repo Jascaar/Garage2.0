@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201802210909420_init29.Designer.cs">
       <DependentUpon>201802210909420_init29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802211123192_init30.cs" />
+    <Compile Include="Migrations\201802211123192_init30.Designer.cs">
+      <DependentUpon>201802211123192_init30.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Garage2_0Context.cs" />
     <Compile Include="Models\PSlot.cs" />
@@ -254,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802210909420_init29.resx">
       <DependentUpon>201802210909420_init29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802211123192_init30.resx">
+      <DependentUpon>201802211123192_init30.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
